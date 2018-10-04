@@ -1,4 +1,4 @@
-package com.pleshkov.xmlBean;
+package com.pleshkov.util;
 
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;

@@ -1,21 +1,21 @@
-package com.pleshkov.xmlBean;
+package com.pleshkov.xml.xmlBean;
 
 
 /**
  * @author pleshkov on 03.10.2018.
  */
-public class Sale {
-    private int CARD_NUMBER;
+public class XMLSale {
+    private Long CARD_NUMBER;
 
     private Long DATE;
 
     private Products PRODUCTS;
 
-    public Integer getCARD_NUMBER() {
+    public Long getCARD_NUMBER() {
         return CARD_NUMBER;
     }
 
-    public void setCARD_NUMBER(Integer CARD_NUMBER) {
+    public void setCARD_NUMBER(Long CARD_NUMBER) {
         this.CARD_NUMBER = CARD_NUMBER;
     }
 

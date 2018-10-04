@@ -1,12 +1,11 @@
-package com.pleshkov.xmlBean;
+package com.pleshkov.xml.xmlBean;
 
 /**
  * @author pleshkov on 03.10.2018.
  */
-public class Product {
+public class XMLProduct {
     private String PRODUCT_CODE;
     private String NAME;
-//    private float PRICE_;
     private double PRICE;
     private int COUNT;
 

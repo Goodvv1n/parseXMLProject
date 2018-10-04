@@ -1,4 +1,4 @@
-package com.pleshkov.xmlBean;
+package com.pleshkov.xml.xmlBean;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -11,13 +11,13 @@ import java.util.List;
 public class Sales {
 
     @XmlElement(name = "SALE")
-    private List<Sale> sale;
+    private List<XMLSale> sale;
 
-    public List<Sale> getSales() {
+    public List<XMLSale> getSales() {
         return sale;
     }
 
-    public void setSales(List<Sale> sales) {
+    public void setSales(List<XMLSale> sales) {
         this.sale = sales;
     }
 }
