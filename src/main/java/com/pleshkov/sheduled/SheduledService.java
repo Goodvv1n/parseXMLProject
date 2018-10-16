@@ -2,9 +2,10 @@ package com.pleshkov.sheduled;
 
 import com.pleshkov.exceptions.SAPIException;
 import com.pleshkov.services.LoadInfoService;
+import com.pleshkov.services.SaleService;
 import com.pleshkov.util.ConfigService;
 import com.pleshkov.util.XMLParser;
-import com.pleshkov.xml.xmlBean.Sales;
+import com.pleshkov.xmlBean.XMLSales;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -23,7 +24,10 @@ import java.util.List;
 public class SheduledService {
 
     @Autowired
-    LoadInfoService service;
+    LoadInfoService loadInfoService;
+
+    @Autowired
+    SaleService saleService;
     private static final Logger LOG = Logger.getLogger(SheduledService.class);
     private static final String CRON = "*/10 * * * * *";
 
@@ -38,7 +42,7 @@ public class SheduledService {
         }
         List<File> lst = Arrays.asList(arrFiles);
         for (File file : lst){
-            loadSalefromFile(file, Sales.class);
+            loadSalefromFile(file, XMLSales.class);
         }
     }
 
@@ -51,13 +55,16 @@ public class SheduledService {
         if (!isNewFile(file)){
             return;
         }
+        LOG.info("Loading file " + file.getPath());
         try {
-            Sales sales = (Sales) XMLParser.parseFile(file, clazz);
-            service.saveInfo(file.getName(), sales);
+            XMLSales sales = (XMLSales) XMLParser.parseFile(file, clazz);
+            loadInfoService.saveInfo(file.getName(), sales);
+            saleService.save(sales);
         } catch (JAXBException e) {
             LOG.info("File " + file.getPath() + " has an incorrect structure. Data not loaded.");
-            service.saveInfo(file.getName(), e);
+            loadInfoService.saveInfo(file.getName(), e);
         }
+
     }
 
     /**
@@ -66,6 +73,6 @@ public class SheduledService {
      * @return результат
      */
     private boolean isNewFile(File file){
-        return !service.isLoadInfoExist(file.getName());
+        return !loadInfoService.isLoadInfoExist(file.getName());
     }
 }

@@ -1,8 +1,6 @@
 package com.pleshkov.data.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -27,7 +25,11 @@ public class SaleEvent {
     /**
      * Дата чека
      */
+    @Temporal(TemporalType.DATE)
     private Date date;
+
+    @Temporal(TemporalType.TIME)
+    private Date time;
 
     public Long getId() {
         return id;
@@ -51,5 +53,15 @@ public class SaleEvent {
 
     public void setDate(Date date) {
         this.date = date;
+        this.time = date;
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.date = date;
+        this.time = date;
     }
 }

@@ -1,11 +1,11 @@
-package com.pleshkov.xml.xmlBean;
+package com.pleshkov.xmlBean;
 
 import java.util.List;
 
 /**
  * @author pleshkov on 03.10.2018.
  */
-public class Products {
+public class XMLProducts {
 
     private List<XMLProduct> PRODUCT;
 

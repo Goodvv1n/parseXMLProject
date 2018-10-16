@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" date="text/html; charset=UTF-8" />
+</head>
+<body>
+<div class="container">
+    <p> <a href="/">На главную</a></p>
+    <h1>Топ лист</h1>
+    <form action="#" th:action="@{/topList}" th:object="${topListParams}" method="get">
+
+        <p>Номер карты: <input type="number" th:field="*{cardId}" th:value="*{cardId}" th:required="true"/></p>
+        <p><input type="submit" value="Submit" />
+    </form>
+
+    <div th:if="${topListParams.cardId != 0}">
+        <p>Выведены записи для карты клиента: <b th:text="${topListParams.cardId}"/></p>
+    </div>
+
+    <div class="row col-md-7 table-responsive" th:if="${topListParams.cardId != 0}">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ИД продукта</th>
+                <th>Код продукта</th>
+                <th>Наименование</th>
+                <th>Количество</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:each="product : ${topList}">
+                <td th:text="${product.productId}"/>
+                <td th:text="${product.productCode}"/>
+                <td th:text="${product.productName}"/>
+                <td th:text="${product.count}"/>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

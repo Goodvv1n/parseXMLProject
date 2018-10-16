@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" date="text/html; charset=UTF-8" />
+</head>
+<body>
+<div class="container">
+    <p> <a href="/">На главную</a></p>
+    <h1>Статистика по чекам</h1>
+    <form action="#" th:action="@{/saleList}" th:object="${saleParams}" method="get">
+
+        <p>Номер карты: <input type="number" th:field="*{cardId}" th:value="*{cardId}" th:required="true"/></p>
+        <p>Дата: <input type="date" th:field="*{date}" /></p>
+        <p><input type="submit" value="Submit" />
+    </form>
+
+    <div th:if="${saleParams.cardId != 0}">
+        <p>Выведены записи для карты клиента: <b th:text="${saleParams.cardId}"/></p>
+    </div>
+
+    <div>
+        <p>Всего чеков: <b th:text="${absSaleCount}"/></p>
+    </div>
+
+    <div th:if="${saleParams.cardId != 0}">
+        <p>Всего у клиента: <b th:text="${saleCount}"/></p>
+    </div>
+
+    <div>
+        <p>Общая сумма чеков: <b th:text="${sum}"/></p>
+    </div>
+
+
+    <div class="row col-md-7 table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Номер карты</th>
+                <th>ИД продукта</th>
+                <th>Код продукта</th>
+                <th>Наименование</th>
+                <th>Количество</th>
+                <th>Цена</th>
+                <th>Дата покупки</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr th:each="product : ${productList}">
+                <td th:text="${product.cardId}"/>
+                <td th:text="${product.productId}"/>
+                <td th:text="${product.productCode}"/>
+                <td th:text="${product.productName}"/>
+                <td th:text="${product.count}"/>
+                <td th:text="${product.formatPrice}"/>
+                <td th:text="${product.date}"/>
+            </tr>
+
+            </tbody>
+        </table>
+        </div>
+
+</body>
+</html>

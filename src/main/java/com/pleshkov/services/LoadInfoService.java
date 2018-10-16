@@ -2,7 +2,7 @@ package com.pleshkov.services;
 
 import com.pleshkov.data.entity.LoadInfo;
 import com.pleshkov.data.repozitory.LoadInfoRepository;
-import com.pleshkov.xml.xmlBean.Sales;
+import com.pleshkov.xmlBean.XMLSales;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +17,7 @@ public class LoadInfoService {
     @Autowired
     private LoadInfoRepository repository;
 
-    public void saveInfo(String fileName, Sales sales){
+    public void saveInfo(String fileName, XMLSales sales){
         saveInfo(createLoadInfo(fileName, sales));
     }
 
@@ -38,7 +38,7 @@ public class LoadInfoService {
         repository.delete(info);
     }
 
-    private void saveInfo(LoadInfo loadInfo){
+    public void saveInfo(LoadInfo loadInfo){
         repository.save(loadInfo);
     }
 
@@ -61,7 +61,7 @@ public class LoadInfoService {
      * @param sales загруженные чеки
      * @return результат
      */
-    private LoadInfo createLoadInfo(String fileName, Sales sales){
+    private LoadInfo createLoadInfo(String fileName, XMLSales sales){
         LoadInfo info = new LoadInfo();
         info.setFileName(fileName);
         info.setLoadedSaleCount(sales.getSales().size());

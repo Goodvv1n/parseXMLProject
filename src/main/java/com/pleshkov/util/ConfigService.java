@@ -9,6 +9,7 @@ import java.io.InputStream;
 import java.util.Properties;
 
 /**
+ * Класс для получения настроек из application.properties
  * @author pleshkov on 04.10.2018.
  */
 public class ConfigService {

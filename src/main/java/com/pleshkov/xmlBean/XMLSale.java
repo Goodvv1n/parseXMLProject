@@ -1,4 +1,4 @@
-package com.pleshkov.xml.xmlBean;
+package com.pleshkov.xmlBean;
 
 
 /**
@@ -9,7 +9,7 @@ public class XMLSale {
 
     private Long DATE;
 
-    private Products PRODUCTS;
+    private XMLProducts PRODUCTS;
 
     public Long getCARD_NUMBER() {
         return CARD_NUMBER;
@@ -27,11 +27,11 @@ public class XMLSale {
         this.DATE = DATE;
     }
 
-    public Products getPRODUCTS() {
+    public XMLProducts getPRODUCTS() {
         return PRODUCTS;
     }
 
-    public void setPRODUCTS(Products PRODUCTS) {
+    public void setPRODUCTS(XMLProducts PRODUCTS) {
         this.PRODUCTS = PRODUCTS;
     }
 }

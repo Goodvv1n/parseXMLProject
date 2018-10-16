@@ -1,19 +1,19 @@
-package com.pleshkov.xml.xmlBean;
+package com.pleshkov.xmlBean;
 
 /**
  * @author pleshkov on 03.10.2018.
  */
 public class XMLProduct {
-    private String PRODUCT_CODE;
+    private Long PRODUCT_CODE;
     private String NAME;
     private double PRICE;
     private int COUNT;
 
-    public String getPRODUCT_CODE() {
+    public Long getPRODUCT_CODE() {
         return PRODUCT_CODE;
     }
 
-    public void setPRODUCT_CODE(String PRODUCT_CODE) {
+    public void setPRODUCT_CODE(Long PRODUCT_CODE) {
         this.PRODUCT_CODE = PRODUCT_CODE;
     }
 
@@ -26,7 +26,11 @@ public class XMLProduct {
     }
 
     public String getPRICE() {
-        return String.format("%.3f", PRICE);
+        return String.format("%.2f", PRICE);
+    }
+
+    public Double getFormatPrice() {
+        return Double.valueOf(getPRICE().replace(",", "."));
     }
 
     public void setPRICE(String PRICE) {

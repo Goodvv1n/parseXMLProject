@@ -1,8 +1,8 @@
 package com.pleshkov;
 
 import com.pleshkov.util.XMLParser;
-import com.pleshkov.xml.xmlBean.Sales;
-import com.pleshkov.xml.xmlBean.XMLSale;
+import com.pleshkov.xmlBean.XMLSales;
+import com.pleshkov.xmlBean.XMLSale;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -22,7 +22,7 @@ public class XMLTest {
     @Test
     public void parseXMLFileTest() throws JAXBException, FileNotFoundException {
         File file = ResourceUtils.getFile(this.getClass().getResource("/text.xml"));
-        Sales sales = (Sales) XMLParser.parseFile(file, Sales.class);
+        XMLSales sales = (XMLSales) XMLParser.parseFile(file, XMLSales.class);
         Assert.assertNotNull(sales);
         Assert.assertEquals(sales.getSales().size(), 2);
         XMLSale saleFirst = sales.getSales().get(0);
