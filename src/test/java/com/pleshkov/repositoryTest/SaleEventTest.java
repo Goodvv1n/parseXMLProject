@@ -30,7 +30,6 @@ public class SaleEventTest {
         }
     }
 
-
     @Test
     public void addTest(){
         List<SaleEvent> list = service.getSaleEventList();

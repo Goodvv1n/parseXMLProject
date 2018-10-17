@@ -17,28 +17,55 @@ public class LoadInfoService {
     @Autowired
     private LoadInfoRepository repository;
 
+    /**
+     * Сохранить информацию об успешной загрузке
+     * @param fileName имя файла
+     * @param sales Чеки
+     */
     public void saveInfo(String fileName, XMLSales sales){
         saveInfo(createLoadInfo(fileName, sales));
     }
 
+    /**
+     * Сохранить информацию о неудачной загрузке
+     * @param fileName имя файла
+     * @param exception ошибка
+     */
     public void saveInfo(String fileName, Exception exception){
         saveInfo(createLoadInfo(fileName, exception));
     }
 
+    /**
+     * Получить все записи о загруженном файле
+     * @return результат
+     */
     public List<LoadInfo> getAll(){
         return (List<LoadInfo>) repository.findAll();
     }
 
+    /**
+     * Проверка, загружался ли уже данный файл
+     * @param fileName имя файла
+     * @return результат
+     */
     public boolean isLoadInfoExist(String fileName){
         List<LoadInfo> list = repository.findByFileName(fileName);
         return list != null && list.size() > 0;
     }
 
-    public void deleteLoadIfo(LoadInfo info){
+    /**
+     * Удалить нформацию о загруженном файле
+     * @param info нфо
+     */
+    public void deleteLoadInfo(LoadInfo info){
         repository.delete(info);
     }
 
-    public void saveInfo(LoadInfo loadInfo){
+    /**
+     * сохранить информацию о загруженном файле
+     * @param loadInfo инфо
+     */
+    private void saveInfo(LoadInfo loadInfo){
         repository.save(loadInfo);
     }
 
@@ -51,7 +78,11 @@ public class LoadInfoService {
     private LoadInfo createLoadInfo(String fileName, Exception e){
         LoadInfo info = new LoadInfo();
         info.setFileName(fileName);
-        info.setLog(e.getCause().getMessage());
+        if (e.getCause() != null) {
+            info.setLog(e.getCause().getMessage());
+        } else {
+            info.setLog(e.getMessage());
+        }
         return info;
     }
 

@@ -1,24 +1,25 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Handling Form Submission</title>
+    <title>XML Parse Project</title>
     <meta http-equiv="Content-Type" date="text/html; charset=UTF-8" />
+    <link href="/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div class="container">
     <p> <a href="/">На главную</a></p>
     <h1>Топ лист</h1>
-    <form action="#" th:action="@{/topList}" th:object="${topListParams}" method="get">
+    <form action="#" th:action="@{/topList}" th:object="${formParams}" method="get">
 
         <p>Номер карты: <input type="number" th:field="*{cardId}" th:value="*{cardId}" th:required="true"/></p>
-        <p><input type="submit" value="Submit" />
+        <p><input type="submit" value="Применить" />
     </form>
 
-    <div th:if="${topListParams.cardId != 0}">
-        <p>Выведены записи для карты клиента: <b th:text="${topListParams.cardId}"/></p>
+    <div th:if="${formParams.cardId != 0}">
+        <p>Выведены записи для карты клиента: <b th:text="${formParams.cardId}"/></p>
     </div>
 
-    <div class="row col-md-7 table-responsive" th:if="${topListParams.cardId != 0}">
+    <div class="row col-md-7 table-responsive" th:if="${formParams.cardId != 0}">
         <table class="table table-striped">
             <thead>
             <tr>

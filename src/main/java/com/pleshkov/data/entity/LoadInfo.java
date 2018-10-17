@@ -11,14 +11,26 @@ import javax.persistence.Id;
 @Entity
 public class LoadInfo {
 
+    /**
+     * Ид записи
+     */
     @Id
     @GeneratedValue
     private Long id;
 
+    /**
+     * Имя файла
+     */
     private String fileName;
 
+    /**
+     * Количество чеков в файле
+     */
     private Integer loadedSaleCount;
 
+    /**
+     * Лог
+     */
     private String Log;
 
     public Long getId() {

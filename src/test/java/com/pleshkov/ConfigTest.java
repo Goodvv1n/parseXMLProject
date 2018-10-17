@@ -16,5 +16,6 @@ public class ConfigTest {
     public void configTest(){
         ConfigService configService = ConfigService.getInstance();
         Assert.assertEquals(configService.getFolderPath(), "D:/Work/xmlFolder");
+        Assert.assertFalse(configService.isEnableLoading());
     }
 }

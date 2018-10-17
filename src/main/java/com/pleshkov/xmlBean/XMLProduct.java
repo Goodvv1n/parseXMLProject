@@ -1,12 +1,28 @@
 package com.pleshkov.xmlBean;
 
 /**
+ * Структура продукта в XML
  * @author pleshkov on 03.10.2018.
  */
 public class XMLProduct {
+    /**
+     * Код продукта
+     */
     private Long PRODUCT_CODE;
+
+    /**
+     * Наименование
+     */
     private String NAME;
+
+    /**
+     * Стоимость продукта
+     */
     private double PRICE;
+
+    /**
+     * Количество
+     */
     private int COUNT;
 
     public Long getPRODUCT_CODE() {

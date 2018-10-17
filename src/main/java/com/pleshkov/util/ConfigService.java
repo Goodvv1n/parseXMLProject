@@ -17,6 +17,7 @@ public class ConfigService {
     private static final Logger LOG = Logger.getLogger(SheduledService.class);
     private static ConfigService instance;
     private String folderPath;
+    private boolean enableLoading;
 
     private ConfigService() {
         Properties properties = new Properties();
@@ -26,6 +27,7 @@ public class ConfigService {
             if (inputStream != null) {
                 properties.load(inputStream);
                 folderPath = properties.getProperty("xmlFolder");
+                enableLoading = Boolean.parseBoolean(properties.getProperty("enableLoading"));
             } else {
                 throw new FileNotFoundException("Property file " + APP_CFG_FILE + " not found in classpath root.");
             }
@@ -49,6 +51,13 @@ public class ConfigService {
         return instance;
     }
 
+    /**
+     * включен ли режим загрузки файлов
+     * @return результат
+     */
+    public boolean isEnableLoading() {
+        return enableLoading;
+    }
 
     /**
      * Получить путь к каталогу, где хранятся XML файлы

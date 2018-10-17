@@ -29,11 +29,15 @@ public class SheduledService {
     @Autowired
     SaleService saleService;
     private static final Logger LOG = Logger.getLogger(SheduledService.class);
-    private static final String CRON = "*/10 * * * * *";
+    private static final String CRON = "0 */10 * * * *";
 
     @Scheduled(cron = CRON)
     public void scanXMLFiles() throws SAPIException {
+        LOG.info("FON");
         ConfigService configService = ConfigService.getInstance();
+        if (!configService.isEnableLoading()){
+            return;
+        }
         String path = configService.getFolderPath();
         File dir = new File(path); //path указывает на директорию
         File[] arrFiles = dir.listFiles();

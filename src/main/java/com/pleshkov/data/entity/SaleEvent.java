@@ -23,11 +23,19 @@ public class SaleEvent {
     private Long cardId;
 
     /**
+     * Сумма чека
+     */
+    private Double sum;
+
+    /**
      * Дата чека
      */
     @Temporal(TemporalType.DATE)
     private Date date;
 
+    /**
+     * Время чека
+     */
     @Temporal(TemporalType.TIME)
     private Date time;
 
@@ -63,5 +71,13 @@ public class SaleEvent {
     public void setTime(Date time) {
         this.date = date;
         this.time = date;
+    }
+
+    public Double getSum() {
+        return sum;
+    }
+
+    public void setSum(Double sum) {
+        this.sum = sum;
     }
 }

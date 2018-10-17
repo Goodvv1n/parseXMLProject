@@ -8,7 +8,9 @@ import com.pleshkov.services.ProductService;
 import com.pleshkov.services.SaleEventService;
 import com.pleshkov.services.SaleService;
 import com.pleshkov.util.XMLParser;
+import com.pleshkov.viewBean.ViewProductSale;
 import com.pleshkov.xmlBean.XMLSales;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -41,6 +43,16 @@ public class SaleTest {
     @Autowired
     ProductSaleService productSaleService;
 
+    @After
+    public void clear(){
+        for (ViewProductSale viewProductSale : saleService.getViewSaleList(null, null)){
+            saleService.deleteSale(viewProductSale);
+        }
+        for (SaleEvent event : saleEventService.getSaleEventList()){
+            saleEventService.delete(event);
+        }
+    }
+
     @Test
     public void addTest() throws FileNotFoundException, JAXBException {
         XMLSales sales = generateSales();
@@ -52,13 +64,13 @@ public class SaleTest {
 
         List<SaleEvent> saleEventList = saleEventService.getSaleEventList();
         Assert.assertNotNull(saleEventList);
-        Assert.assertEquals(2, saleEventList.size());
+        Assert.assertEquals(5, saleEventList.size());
 
         List<ProductSale> productSaleList = productSaleService.getProductSaleList();
         Assert.assertNotNull(productSaleList);
-        Assert.assertEquals(14, productSaleList.size());
+        Assert.assertEquals(36, productSaleList.size());
 
-        int saleSize = saleService.getProductSaleList().size();
+        int saleSize = saleEventService.getSaleEventList().size();
         int productSize = productService.getProducts().size();
         int productSaleSize = productSaleService.getProductSaleList().size();
 
@@ -70,11 +82,11 @@ public class SaleTest {
 
         saleEventList = saleEventService.getSaleEventList();
         Assert.assertNotNull(saleEventList);
-        Assert.assertEquals(4, saleEventList.size());
+        Assert.assertEquals(saleSize * 2, saleEventList.size());
 
         productSaleList = productSaleService.getProductSaleList();
         Assert.assertNotNull(productSaleList);
-        Assert.assertEquals(28, productSaleList.size());
+        Assert.assertEquals(productSaleSize * 2, productSaleList.size());
     }
 
     private XMLSales generateSales() throws FileNotFoundException, JAXBException {

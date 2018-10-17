@@ -1,16 +1,29 @@
 package com.pleshkov.viewBean;
 
 /**
+ * Бин для отображения ТОП продукта
  * @author pleshkov on 15.10.2018.
  */
 public class TopProduct {
 
+    /**
+     * Ид продукта
+     */
     private Long productId;
 
+    /**
+     * Код продукта
+     */
     private Long productCode;
 
+    /**
+     * Наименование продукта
+     */
     private String productName;
 
+    /**
+     * Количество
+     */
     private Integer count;
 
     public Long getProductId() {

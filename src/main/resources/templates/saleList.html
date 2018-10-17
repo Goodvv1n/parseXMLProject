@@ -1,29 +1,30 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Getting Started: Handling Form Submission</title>
+    <title>XML Parse Project</title>
     <meta http-equiv="Content-Type" date="text/html; charset=UTF-8" />
+    <link href="/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 <div class="container">
     <p> <a href="/">На главную</a></p>
     <h1>Статистика по чекам</h1>
-    <form action="#" th:action="@{/saleList}" th:object="${saleParams}" method="get">
+    <form action="#" th:action="@{/saleList}" th:object="${formParams}" method="get">
 
         <p>Номер карты: <input type="number" th:field="*{cardId}" th:value="*{cardId}" th:required="true"/></p>
         <p>Дата: <input type="date" th:field="*{date}" /></p>
-        <p><input type="submit" value="Submit" />
+        <p><input type="submit" value="Применить" />
     </form>
 
-    <div th:if="${saleParams.cardId != 0}">
-        <p>Выведены записи для карты клиента: <b th:text="${saleParams.cardId}"/></p>
+    <div th:if="${formParams.cardId != 0}">
+        <p>Выведены записи для карты клиента: <b th:text="${formParams.cardId}"/></p>
     </div>
 
     <div>
         <p>Всего чеков: <b th:text="${absSaleCount}"/></p>
     </div>
 
-    <div th:if="${saleParams.cardId != 0}">
+    <div th:if="${formParams.cardId != 0}">
         <p>Всего у клиента: <b th:text="${saleCount}"/></p>
     </div>
 
@@ -33,7 +34,7 @@
 
 
     <div class="row col-md-7 table-responsive">
-        <table class="table table-striped">
+        <table class="table-striped">
             <thead>
             <tr>
                 <th>Номер карты</th>

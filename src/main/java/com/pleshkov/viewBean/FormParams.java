@@ -3,8 +3,19 @@ package com.pleshkov.viewBean;
 /**
  * @author pleshkov on 15.10.2018.
  */
-public class SaleParams {
+
+/**
+ * Объект с параметрами для форм
+ */
+public class FormParams {
+    /**
+     * Ид карты
+     */
     private Long cardId;
+
+    /**
+     * Дата
+     */
     private String date;
 
     public Long getCardId() {

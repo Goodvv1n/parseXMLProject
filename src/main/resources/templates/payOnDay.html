@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>XML Parse Project</title>
+    <meta http-equiv="Content-Type" date="text/html; charset=UTF-8" />
+    <link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="container">
+    <p> <a href="/">На главную</a></p>
+    <h1>Сумма покупок по дням</h1>
+    <form action="#" th:action="@{/payOnDay}" th:object="${formParams}" method="get">
+
+        <p>Дата: <input type="date" th:field="*{date}" th:required="true" /></p>
+        <p><input type="submit" value="Применить" />
+    </form>
+
+    <div>
+        <p>Всего чеков: <b th:text="${absSaleCount}"/></p>
+    </div>
+
+    <div>
+        <p>Общая сумма чеков: <b th:text="${sumOnDay}"/></p>
+    </div>
+
+</body>
+</html>

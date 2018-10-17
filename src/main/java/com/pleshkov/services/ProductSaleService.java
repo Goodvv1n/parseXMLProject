@@ -16,22 +16,44 @@ public class ProductSaleService {
     @Autowired
     ProductSaleRepozitory repozitory;
 
+    /**
+     * Сохранить информацию о купленном товаре
+     * @param productSale инфо
+     */
     public void save(ProductSale productSale){
         repozitory.save(productSale);
     }
 
+    /**
+     * Получить список купленных товаров
+     * @return результат
+     */
     public List<ProductSale> getProductSaleList(){
         return (List<ProductSale>) repozitory.findAll();
     }
 
+    /**
+     * Получить список купленный товаров по Ид чека
+     * @param saleId Ид чека
+     * @return результат
+     */
     public List<ProductSale> findBySaleId(Long saleId){
         return repozitory.findBySaleId(saleId);
     }
 
+    /**
+     * Получить список купленных товаров по Ид продукта
+     * @param productId Ид продукта
+     * @return результат
+     */
     public List<ProductSale> findByProductId(Long productId){
        return repozitory.findByProductId(productId);
     }
 
+    /**
+     * Удалить информацию о купленном товаре
+     * @param productSale инфо
+     */
     public void delete(ProductSale productSale){
         repozitory.delete(productSale);
     }

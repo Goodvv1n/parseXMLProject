@@ -24,11 +24,11 @@ public class XMLTest {
         File file = ResourceUtils.getFile(this.getClass().getResource("/text.xml"));
         XMLSales sales = (XMLSales) XMLParser.parseFile(file, XMLSales.class);
         Assert.assertNotNull(sales);
-        Assert.assertEquals(sales.getSales().size(), 2);
+        Assert.assertEquals(sales.getSales().size(), 5);
         XMLSale saleFirst = sales.getSales().get(0);
         XMLSale saleSecond = sales.getSales().get(1);
         checkSale(saleFirst, 78483L, 1528205653605L);
-        checkSale(saleSecond, 77394L, 1538669872795L);
+        checkSale(saleSecond, 7777L, 1528205653605L);
     }
 
     private void checkSale(XMLSale sale, Long cardNumber, Long date) {
