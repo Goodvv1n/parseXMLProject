@@ -2,7 +2,7 @@ package com.pleshkov.services;
 
 import com.pleshkov.data.entity.Product;
 import com.pleshkov.data.repozitory.ProductRepozitory;
-import com.pleshkov.xmlBean.XMLProduct;
+import com.pleshkov.beans.xml.XMLProduct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

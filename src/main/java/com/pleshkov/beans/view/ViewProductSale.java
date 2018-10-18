@@ -1,4 +1,4 @@
-package com.pleshkov.viewBean;
+package com.pleshkov.beans.view;
 
 import java.util.Date;
 

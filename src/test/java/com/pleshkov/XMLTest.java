@@ -1,8 +1,8 @@
 package com.pleshkov;
 
 import com.pleshkov.util.XMLParser;
-import com.pleshkov.xmlBean.XMLSales;
-import com.pleshkov.xmlBean.XMLSale;
+import com.pleshkov.beans.xml.XMLSales;
+import com.pleshkov.beans.xml.XMLSale;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

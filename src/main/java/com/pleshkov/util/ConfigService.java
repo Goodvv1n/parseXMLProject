@@ -1,6 +1,5 @@
 package com.pleshkov.util;
 
-import com.pleshkov.sheduled.SheduledService;
 import org.apache.log4j.Logger;
 
 import java.io.FileNotFoundException;
@@ -14,7 +13,7 @@ import java.util.Properties;
  */
 public class ConfigService {
     private static final String APP_CFG_FILE = "application.properties";
-    private static final Logger LOG = Logger.getLogger(SheduledService.class);
+    private static final Logger LOG = Logger.getLogger(ConfigService.class);
     private static ConfigService instance;
     private String folderPath;
     private boolean enableLoading;

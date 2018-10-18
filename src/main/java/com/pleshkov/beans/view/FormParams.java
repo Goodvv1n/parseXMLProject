@@ -1,4 +1,4 @@
-package com.pleshkov.viewBean;
+package com.pleshkov.beans.view;
 
 /**
  * @author pleshkov on 15.10.2018.

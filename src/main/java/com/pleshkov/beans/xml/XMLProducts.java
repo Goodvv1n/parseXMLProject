@@ -1,4 +1,4 @@
-package com.pleshkov.xmlBean;
+package com.pleshkov.beans.xml;
 
 import java.util.List;
 

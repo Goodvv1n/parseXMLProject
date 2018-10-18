@@ -4,11 +4,11 @@ import com.pleshkov.data.entity.Product;
 import com.pleshkov.data.entity.ProductSale;
 import com.pleshkov.data.entity.SaleEvent;
 import com.pleshkov.data.entity.SaleSum;
-import com.pleshkov.viewBean.TopProduct;
-import com.pleshkov.viewBean.ViewProductSale;
-import com.pleshkov.xmlBean.XMLProduct;
-import com.pleshkov.xmlBean.XMLSale;
-import com.pleshkov.xmlBean.XMLSales;
+import com.pleshkov.beans.view.TopProduct;
+import com.pleshkov.beans.view.ViewProductSale;
+import com.pleshkov.beans.xml.XMLProduct;
+import com.pleshkov.beans.xml.XMLSale;
+import com.pleshkov.beans.xml.XMLSales;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

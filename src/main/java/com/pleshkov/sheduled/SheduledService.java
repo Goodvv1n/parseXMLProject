@@ -5,7 +5,7 @@ import com.pleshkov.services.LoadInfoService;
 import com.pleshkov.services.SaleService;
 import com.pleshkov.util.ConfigService;
 import com.pleshkov.util.XMLParser;
-import com.pleshkov.xmlBean.XMLSales;
+import com.pleshkov.beans.xml.XMLSales;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -17,7 +17,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Сервис для управлением фоновой задачей
+ * Сервис для управления фоновой задачей
  * @author pleshkov on 03.10.2018.
  */
 @Service
@@ -33,7 +33,6 @@ public class SheduledService {
 
     @Scheduled(cron = CRON)
     public void scanXMLFiles() throws SAPIException {
-        LOG.info("FON");
         ConfigService configService = ConfigService.getInstance();
         if (!configService.isEnableLoading()){
             return;

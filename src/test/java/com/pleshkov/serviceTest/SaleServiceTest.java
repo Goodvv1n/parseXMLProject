@@ -2,9 +2,9 @@ package com.pleshkov.serviceTest;
 
 import com.pleshkov.services.SaleService;
 import com.pleshkov.util.XMLParser;
-import com.pleshkov.viewBean.TopProduct;
-import com.pleshkov.viewBean.ViewProductSale;
-import com.pleshkov.xmlBean.XMLSales;
+import com.pleshkov.beans.view.TopProduct;
+import com.pleshkov.beans.view.ViewProductSale;
+import com.pleshkov.beans.xml.XMLSales;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;

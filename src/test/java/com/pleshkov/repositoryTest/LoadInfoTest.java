@@ -3,7 +3,7 @@ package com.pleshkov.repositoryTest;
 import com.pleshkov.data.entity.LoadInfo;
 import com.pleshkov.services.LoadInfoService;
 import com.pleshkov.util.XMLParser;
-import com.pleshkov.xmlBean.XMLSales;
+import com.pleshkov.beans.xml.XMLSales;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Test;

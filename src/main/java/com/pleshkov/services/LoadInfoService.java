@@ -2,7 +2,7 @@ package com.pleshkov.services;
 
 import com.pleshkov.data.entity.LoadInfo;
 import com.pleshkov.data.repozitory.LoadInfoRepository;
-import com.pleshkov.xmlBean.XMLSales;
+import com.pleshkov.beans.xml.XMLSales;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

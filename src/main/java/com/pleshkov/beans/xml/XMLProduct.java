@@ -1,4 +1,4 @@
-package com.pleshkov.xmlBean;
+package com.pleshkov.beans.xml;
 
 /**
  * Структура продукта в XML
