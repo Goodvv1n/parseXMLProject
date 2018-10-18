@@ -1,8 +1,7 @@
 package com.pleshkov.data.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.Date;
 
 /**
  * Сущность для хранения суммы по чекам
@@ -21,6 +20,10 @@ public class SaleSum {
      * Ид чека
      */
     private Long saleId;
+
+    @Temporal(TemporalType.DATE)
+    private Date date;
+
 
     /**
      * Сумма чека
@@ -49,5 +52,13 @@ public class SaleSum {
 
     public void setSum(Double sum) {
         this.sum = sum;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }

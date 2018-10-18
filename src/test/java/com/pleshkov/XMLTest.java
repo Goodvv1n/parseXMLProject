@@ -21,7 +21,7 @@ public class XMLTest {
 
     @Test
     public void parseXMLFileTest() throws JAXBException, FileNotFoundException {
-        File file = ResourceUtils.getFile(this.getClass().getResource("/text.xml"));
+        File file = ResourceUtils.getFile(this.getClass().getResource("/test.xml"));
         XMLSales sales = (XMLSales) XMLParser.parseFile(file, XMLSales.class);
         Assert.assertNotNull(sales);
         Assert.assertEquals(sales.getSales().size(), 5);

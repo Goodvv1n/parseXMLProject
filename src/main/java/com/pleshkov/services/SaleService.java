@@ -59,7 +59,7 @@ public class SaleService {
                 sum += product.getCOUNT() * product.getFormatPrice();
             }
             saleEvent.setSum(sum);
-            saveSaleSum(saleEvent.getId(), sum);
+            saveSaleSum(saleEvent,  sum);
         }
     }
 
@@ -79,10 +79,7 @@ public class SaleService {
     public String getSumOnDay(Date date){
         Double sum = 0d;
         if ( date != null){
-            List<SaleEvent> saleEventList = saleEventService.getSaleEventList(date);
-            for (SaleEvent saleEvent : saleEventList){
-                sum += saleEventService.getSaleSum(saleEvent.getId());
-            }
+            sum = saleEventService.getSaleSum(date);
         }
         return String.format("%.2f", sum);
     }
@@ -292,12 +289,13 @@ public class SaleService {
 
     /**
      * Сохранить сумму по чеку
-     * @param saleId Ид чека
+     * @param saleEvent Чек
      * @param sum сумма чека
      */
-    private void saveSaleSum(Long saleId, Double sum){
+    private void saveSaleSum(SaleEvent saleEvent, Double sum){
         SaleSum saleSum = new SaleSum();
-        saleSum.setSaleId(saleId);
+        saleSum.setSaleId(saleEvent.getId());
+        saleSum.setDate(saleEvent.getDate());
         saleSum.setSum(sum);
         saleEventService.saveSaleSum(saleSum);
     }

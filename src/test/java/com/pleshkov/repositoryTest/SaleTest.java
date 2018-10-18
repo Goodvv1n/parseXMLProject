@@ -90,7 +90,7 @@ public class SaleTest {
     }
 
     private XMLSales generateSales() throws FileNotFoundException, JAXBException {
-        File file = ResourceUtils.getFile(this.getClass().getResource("/text.xml"));
+        File file = ResourceUtils.getFile(this.getClass().getResource("/test.xml"));
         return (XMLSales) XMLParser.parseFile(file, XMLSales.class);
     }
 }

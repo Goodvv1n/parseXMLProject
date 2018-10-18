@@ -31,7 +31,7 @@ public class SaleServiceTest {
 
     @Test
     public void saleServiceTest() throws FileNotFoundException, JAXBException {
-        File file = ResourceUtils.getFile("src/test/resourses/text.xml");
+        File file = ResourceUtils.getFile("src/test/resourses/test.xml");
         XMLSales sales = (XMLSales) XMLParser.parseFile(file, XMLSales.class);
         saleService.save(sales);
         List<ViewProductSale> list = saleService.getViewSaleList(7777L, null);

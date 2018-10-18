@@ -73,7 +73,7 @@ public class LoadInfoTest {
     }
 
     private XMLSales generateInfo() throws JAXBException, FileNotFoundException {
-        File file = ResourceUtils.getFile(this.getClass().getResource("/text.xml"));
+        File file = ResourceUtils.getFile(this.getClass().getResource("/test.xml"));
         return (XMLSales) XMLParser.parseFile(file, XMLSales.class);
     }
 }

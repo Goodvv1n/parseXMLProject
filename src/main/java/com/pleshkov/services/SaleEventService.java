@@ -85,7 +85,36 @@ public class SaleEventService {
         if (list != null && list.size() > 0){
             return list.get(0).getSum();
         }
-        return null;
+        return 0d;
+    }
+
+    /**
+     * получить сумму по ИД чека и дате
+     * @param saleId Ид чека
+     * @param date дата чека
+     * @return результат
+     */
+    public Double getSaleSum(Long saleId, Date date){
+        List<SaleSum> list = saleSumRepository.findBySaleIdAndDate(saleId, date);
+        if (list != null && list.size() > 0){
+            return list.get(0).getSum();
+        }
+        return 0d;
+    }
+
+
+    /**
+     * получить сумму чеков по дате
+     * @param date дата чека
+     * @return результат
+     */
+    public Double getSaleSum(Date date){
+        Double sum = 0d;
+        List<SaleSum> list = saleSumRepository.findByDate(date);
+        for (SaleSum item : list){
+            sum += item.getSum();
+        }
+        return sum;
     }
 
     /**
